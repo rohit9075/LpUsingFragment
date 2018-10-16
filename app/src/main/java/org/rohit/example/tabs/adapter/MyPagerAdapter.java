@@ -1,9 +1,11 @@
-package org.rohit.example.tabs;
+package org.rohit.example.tabs.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import org.rohit.example.tabs.Utils.Constants;
 
 
 /**
@@ -12,7 +14,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class MyPagerAdapter extends FragmentPagerAdapter {
 
-    MyPagerAdapter(FragmentManager fm) {
+  public MyPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

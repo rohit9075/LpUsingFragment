@@ -1,4 +1,4 @@
-package org.rohit.example.tabs;
+package org.rohit.example.tabs.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import org.rohit.example.R;
+import org.rohit.example.tabs.adapter.MyPagerAdapter;
 
 
 public class MainActivity extends AppCompatActivity {

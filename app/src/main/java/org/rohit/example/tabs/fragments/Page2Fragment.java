@@ -1,4 +1,4 @@
-package org.rohit.example.tabs;
+package org.rohit.example.tabs.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
