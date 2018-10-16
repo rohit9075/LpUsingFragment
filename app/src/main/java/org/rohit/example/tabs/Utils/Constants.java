@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import org.rohit.example.tabs.activities.MainActivity;
 import org.rohit.example.tabs.fragments.CandidateLoginFragment;
 import org.rohit.example.tabs.fragments.Page2Fragment;
-import org.rohit.example.tabs.fragments.Page3Fragment;
 
 /**
  * Constant class for providing all the constant fields
