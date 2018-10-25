@@ -38,6 +38,7 @@
 
 
             <EditText
+                android:id="@+id/editText_candidate_login"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8.5"
@@ -69,6 +70,7 @@
 
 
             <EditText
+                android:id="@+id/editText_caldidate_login_password"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8.5"
