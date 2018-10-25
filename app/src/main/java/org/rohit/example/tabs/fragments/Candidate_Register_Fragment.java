@@ -51,7 +51,6 @@ public class Candidate_Register_Fragment extends Fragment implements View.OnClic
 
     DatabaseHelper mDataBaseHelper;
 
-    private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1001;
     byte [] mCandidateImageBytes;
 
     Candidate  mCandidate;
