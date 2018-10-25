@@ -33,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addCandidate(Candidate candidate)
+    public void addCandidate(Candidate candidate , byte [] imagData )
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(Constants.COLUMN_CANDIDATE_PASSWORD, candidate.getPassword());
         values.put(Constants.COLUMN_CANDIDATE_GENDER, candidate.getGender());
 
-//        values.put(Constants.COLUMN_CANDIDATE_IMAGE, data);
+        values.put(Constants.COLUMN_CANDIDATE_IMAGE, imagData);
         // Inserting Row
         db.insert(Constants.TABLE_CANDIDATE, null, values);
         db.close();
