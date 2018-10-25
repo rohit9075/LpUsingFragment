@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 
 import org.rohit.example.tabs.activities.MainActivity;
 import org.rohit.example.tabs.fragments.CandidateLoginFragment;
-import org.rohit.example.tabs.fragments.Page2Fragment;
+import org.rohit.example.tabs.fragments.Candidate_Register_Fragment;
 
 /**
  * Constant class for providing all the constant fields
@@ -23,6 +23,6 @@ public class Constants {
     // The fragments that are used as the individual pages
     public static final Fragment[] PAGES = new Fragment[] {
             new CandidateLoginFragment(),
-            new Page2Fragment(),
+            new Candidate_Register_Fragment(),
     };
 }
