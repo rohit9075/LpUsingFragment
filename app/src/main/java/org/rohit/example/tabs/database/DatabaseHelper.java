@@ -2,7 +2,6 @@ package org.rohit.example.tabs.database;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -34,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addCandidate(Candidate candidate, byte [] data)
+    public void addCandidate(Candidate candidate)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -46,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(Constants.COLUMN_CANDIDATE_PASSWORD, candidate.getPassword());
         values.put(Constants.COLUMN_CANDIDATE_GENDER, candidate.getGender());
 
-        values.put(Constants.COLUMN_CANDIDATE_IMAGE, data);
+//        values.put(Constants.COLUMN_CANDIDATE_IMAGE, data);
         // Inserting Row
         db.insert(Constants.TABLE_CANDIDATE, null, values);
         db.close();
@@ -58,93 +57,92 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     
     
-    public boolean checkCandidate( String email)
-    {
-        // array of columns to fetch
-        String[] columns = {Constants.COLUMN_CANDIDATE_EMAIL};
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        // selection criteria
-        String selection = Constants.COLUMN_CANDIDATE_EMAIL + " = ?";
-
-        // selection argument
-        String[] selectionArgs = {email};
-
-        // query candidate table with condition
-        /*
-         * Here query function is used to fetch records from candidate table this function works like we use sql query.
-         * SQL query equivalent to this query function is
-         * SELECT user_id FROM candidate WHERE user_email = 'jack@androidtutorialshub.com';
-         */
-        Cursor cursor = db.query(Constants.TABLE_CANDIDATE,columns,selection,selectionArgs,null, null, null);
-        int cursorCount = cursor.getCount();
-        cursor.close();
-        db.close();
-
-        return cursorCount > 0;
-
-    }
-
-
-
-    public boolean checkCandidate(String email, String password) {
-
-        // array of columns to fetch
-        String[] columns = {Constants.COLUMN_CANDIDATE_EMAIL};
-        SQLiteDatabase db = this.getReadableDatabase();
-        // selection criteria
-        String selection = Constants.COLUMN_CANDIDATE_EMAIL + " = ?" + " AND " + Constants.COLUMN_CANDIDATE_PASSWORD + " = ?";
-
-        // selection arguments
-        String[] selectionArgs = {email, password};
-
-        // query candidate table with conditions
-        /*
-         * Here query function is used to fetch records from candidate table this function works like we use sql query.
-         * SQL query equivalent to this query function is
-         * SELECT user_id FROM candidate WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
-         */
-        Cursor cursor = db.query(Constants.TABLE_CANDIDATE, //Table to query
-                columns,                    //columns to return
-                selection,                  //columns for the WHERE clause
-                selectionArgs,              //The values for the WHERE clause
-                null,                       //group the rows
-                null,                       //filter by row groups
-                null);                      //The sort order
-
-        int cursorCount = cursor.getCount();
-
-        cursor.close();
-        db.close();
-
-        return cursorCount > 0;
-
-    }
-
-    public boolean updateCandidate(Candidate candidate, byte[] data) {
+//    public boolean checkCandidate( String email)
+//    {
+//        // array of columns to fetch
+//        String[] columns = {Constants.COLUMN_CANDIDATE_EMAIL};
+//        SQLiteDatabase db = this.getReadableDatabase();
+//
+//        // selection criteria
+//        String selection = Constants.COLUMN_CANDIDATE_EMAIL + " = ?";
+//
+//        // selection argument
+//        String[] selectionArgs = {email};
+//
+//        // query candidate table with condition
+//        /*
+//         * Here query function is used to fetch records from candidate table this function works like we use sql query.
+//         * SQL query equivalent to this query function is
+//         * SELECT user_id FROM candidate WHERE user_email = 'jack@androidtutorialshub.com';
+//         */
+//        Cursor cursor = db.query(Constants.TABLE_CANDIDATE,columns,selection,selectionArgs,null, null, null);
+//        int cursorCount = cursor.getCount();
+//        cursor.close();
+//        db.close();
+//
+//        return cursorCount > 0;
+//
+//    }
 
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        //values.put(COLUMN_CANDIDATE_ID,candidate.getId());
-        values.put(Constants.COLUMN_CANDIDATE_EMAIL, candidate.getEmailId());
-        values.put(Constants.COLUMN_CANDIDATE_FIRST_NAME, candidate.getFirstName());
-        values.put(Constants.COLUMN_CANDIDATE_LAST_NAME, candidate.getLastName());
-        values.put(Constants.COLUMN_CANDIDATE_DATE_OF_BIRTH, candidate.getDateOfBirth());
-        values.put(Constants.COLUMN_CANDIDATE_PHONE,candidate.getMobileNumber());
-        values.put(Constants.COLUMN_CANDIDATE_GENDER, candidate.getGender());
 
-        values.put(Constants.COLUMN_CANDIDATE_IMAGE, data);
-        // updating row
-        /*db.update(TABLE_CAN, values,null,null);
-        db.close();*/
+//    public boolean checkCandidate(String email, String password) {
+//
+//        // array of columns to fetch
+//        String[] columns = {Constants.COLUMN_CANDIDATE_EMAIL};
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        // selection criteria
+//        String selection = Constants.COLUMN_CANDIDATE_EMAIL + " = ?" + " AND " + Constants.COLUMN_CANDIDATE_PASSWORD + " = ?";
+//
+//        // selection arguments
+//        String[] selectionArgs = {email, password};
+//
+//        // query candidate table with conditions
+//        /*
+//         * Here query function is used to fetch records from candidate table this function works like we use sql query.
+//         * SQL query equivalent to this query function is
+//         * SELECT user_id FROM candidate WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
+//         */
+//        Cursor cursor = db.query(Constants.TABLE_CANDIDATE, //Table to query
+//                columns,                    //columns to return
+//                selection,                  //columns for the WHERE clause
+//                selectionArgs,              //The values for the WHERE clause
+//                null,                       //group the rows
+//                null,                       //filter by row groups
+//                null);                      //The sort order
+//
+//        int cursorCount = cursor.getCount();
+//
+//        cursor.close();
+//        db.close();
+//
+//        return cursorCount > 0;
+//
+//    }
 
-        return db.update(Constants.TABLE_CANDIDATE,
-                values,
-                Constants.COLUMN_CANDIDATE_EMAIL + "=?",
-                new String[]{candidate.getEmailId()}) == 1;
-
-    }
+//    public boolean updateCandidate(Candidate candidate, byte[] data) {
+//
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put(Constants.COLUMN_CANDIDATE_EMAIL, candidate.getEmailId());
+//        values.put(Constants.COLUMN_CANDIDATE_FIRST_NAME, candidate.getFirstName());
+//        values.put(Constants.COLUMN_CANDIDATE_LAST_NAME, candidate.getLastName());
+//        values.put(Constants.COLUMN_CANDIDATE_DATE_OF_BIRTH, candidate.getDateOfBirth());
+//        values.put(Constants.COLUMN_CANDIDATE_PHONE,candidate.getMobileNumber());
+//        values.put(Constants.COLUMN_CANDIDATE_GENDER, candidate.getGender());
+//
+//        values.put(Constants.COLUMN_CANDIDATE_IMAGE, data);
+//        // updating row
+//        /*db.update(TABLE_CAN, values,null,null);
+//        db.close();*/
+//
+//        return db.update(Constants.TABLE_CANDIDATE,
+//                values,
+//                Constants.COLUMN_CANDIDATE_EMAIL + "=?",
+//                new String[]{candidate.getEmailId()}) == 1;
+//
+//    }
 
 
 //    public List<User> getAllUser() {
@@ -221,34 +219,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //    }
 
 
-        public Cursor getCandidateProfile(String email) {
-
-
-
-        String[] columns = {
-                Constants.COLUMN_CANDIDATE_EMAIL,
-                Constants.COLUMN_CANDIDATE_FIRST_NAME,
-                Constants.COLUMN_CANDIDATE_LAST_NAME,
-                Constants.COLUMN_CANDIDATE_DATE_OF_BIRTH,
-                Constants.COLUMN_CANDIDATE_PHONE,
-                Constants.COLUMN_CANDIDATE_GENDER,
-                Constants.COLUMN_CANDIDATE_IMAGE
-        };
-
-            String selection = Constants.COLUMN_CANDIDATE_EMAIL + " = ?";
-
-            // selection arguments
-            String[] selectionArgs = {email};
-
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(Constants.TABLE_CANDIDATE, columns,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                null);
-
-        return cursor;
-    }
+//        public Cursor getCandidateProfile(String email) {
+//
+//
+//
+//        String[] columns = {
+//                Constants.COLUMN_CANDIDATE_EMAIL,
+//                Constants.COLUMN_CANDIDATE_FIRST_NAME,
+//                Constants.COLUMN_CANDIDATE_LAST_NAME,
+//                Constants.COLUMN_CANDIDATE_DATE_OF_BIRTH,
+//                Constants.COLUMN_CANDIDATE_PHONE,
+//                Constants.COLUMN_CANDIDATE_GENDER,
+//                Constants.COLUMN_CANDIDATE_IMAGE
+//        };
+//
+//            String selection = Constants.COLUMN_CANDIDATE_EMAIL + " = ?";
+//
+//            // selection arguments
+//            String[] selectionArgs = {email};
+//
+//        SQLiteDatabase db = this.getReadableDatabase();
+//
+//        Cursor cursor = db.query(Constants.TABLE_CANDIDATE, columns,
+//                selection,
+//                selectionArgs,
+//                null,
+//                null,
+//                null);
+//
+//        return cursor;
+//    }
 }

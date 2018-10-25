@@ -12,12 +12,20 @@ import android.widget.Toast;
 
 import org.rohit.example.R;
 import org.rohit.example.tabs.Utils.InputValidation;
+import org.rohit.example.tabs.database.DatabaseHelper;
+import org.rohit.example.tabs.model.Candidate;
+
+import java.util.Objects;
 
 /* Fragment used as page 2 */
 public class Candidate_Register_Fragment extends Fragment implements View.OnClickListener {
 
     EditText mEtFname, mEtLname, mEtEmail, mEtPhone, mEtPassword, mEdtCnfPassword;
     Button mBRegister;
+
+    DatabaseHelper mDataBaseHelper;
+
+    Candidate  mCandidate;
 
     private InputValidation mInputValidation;
 
@@ -48,19 +56,26 @@ public class Candidate_Register_Fragment extends Fragment implements View.OnClic
 
 
         mInputValidation = new InputValidation(getContext());
+
+        mDataBaseHelper = new DatabaseHelper(getContext());
     }
     private void getData(){
 
-        StringBuilder builder  = new StringBuilder();
 
-        String name ;
 
-        name = mEtFname.getText().toString();
+        // candidate object instantiation
 
-        builder.append("Fisrt Name " +  mEtFname.getText().toString() + "  Last Name " + mEtLname.getText().toString() +
-                " Email  " + mEtEmail.getText().toString());
+        mCandidate = new Candidate();
 
-        Toast.makeText(getContext(), builder, Toast.LENGTH_SHORT).show();
+        // storing candidate data into candidate object
+
+        mCandidate.setFirstName(mEtFname.getText().toString().trim());
+        mCandidate.setLastName(mEtLname.getText().toString().trim());
+        mCandidate.setEmailId(mEtEmail.getText().toString().trim());
+        mCandidate.setMobileNumber(mEtPhone.getText().toString().trim());
+        mCandidate.setDateOfBirth("06/04/1890");
+        mCandidate.setPassword(Objects.requireNonNull(mEtPassword.getText()).toString().trim());
+        mCandidate.setGender("Male");
 
     }
 
@@ -132,7 +147,17 @@ public class Candidate_Register_Fragment extends Fragment implements View.OnClic
 
         getData();   //getData() method call
 
+        postDataToDatabase();
 
+
+
+    }
+
+
+    private void postDataToDatabase() {
+
+
+            mDataBaseHelper.addCandidate(mCandidate);
 
     }
 
