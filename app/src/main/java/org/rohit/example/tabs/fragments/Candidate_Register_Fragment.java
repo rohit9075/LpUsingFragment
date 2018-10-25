@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import org.rohit.example.R;
 
 /* Fragment used as page 2 */
-public class Page2Fragment extends Fragment {
+public class Candidate_Register_Fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -3,13 +3,122 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pageColor1">
+    android:background="#BC000000">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="This is page 1"
-        />
+        android:layout_weight="6"
+        android:layout_marginStart="32dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical">
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:background="#9e9797"
+                android:tint="#FFFFFF"
+                android:padding="12dp"
+                android:src="@drawable/ic_perm_identity_black_24dp" />
+
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8.5"
+                android:hint="Email Id"
+                android:background="#ede8e8"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:background="#9e9797"
+                android:tint="#FFFFFF"
+                android:padding="12dp"
+                android:src="@drawable/ic_lock_outline_black_24dp" />
+
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8.5"
+                android:hint="Password"
+                android:inputType="numberPassword"
+                android:background="#ede8e8"
+                android:padding="12dp"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/selector_button_login"
+            android:padding="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Admin Login"
+                android:textStyle="bold"
+                android:textColor="#1CB189"/>
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textStyle="bold"
+                android:gravity="end"
+                android:textColor="#1CB189"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </RelativeLayout>
 </FrameLayout>
