@@ -23,7 +23,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_launcher"
-                android:id="@+id/imageView"
+                android:id="@+id/imageView_candidate_profile"
                 tools:ignore="ContentDescription" />
 
             <TextView
