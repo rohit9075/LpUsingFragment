@@ -32,6 +32,7 @@ public class Candidate_Register_Fragment extends Fragment implements View.OnClic
 
 
     private void initView(View rootView) {
+
         mEtFname = rootView.findViewById(R.id.editText_first_name);
         mEtLname = rootView.findViewById(R.id.editText_last_name);
         mEtEmail = rootView.findViewById(R.id.editText_email);
@@ -42,12 +43,30 @@ public class Candidate_Register_Fragment extends Fragment implements View.OnClic
 
         mBRegister.setOnClickListener(this);
     }
+    private void getData(){
+
+        StringBuilder builder  = new StringBuilder();
+
+        String name ;
+
+        name = mEtFname.getText().toString();
+
+        builder.append("Fisrt Name " +  mEtFname.getText().toString() + "  Last Name " + mEtLname.getText().toString() +
+                " Email  " + mEtEmail.getText().toString());
+
+        Toast.makeText(getContext(), builder, Toast.LENGTH_SHORT).show();
+
+    }
 
 
     @Override
     public void onClick(View v) {
 
-        Toast.makeText(getContext(), "Button Clickec", Toast.LENGTH_SHORT).show();
+        getData();
+
+//        Toast.makeText(getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
 
     }
+
+
 }
