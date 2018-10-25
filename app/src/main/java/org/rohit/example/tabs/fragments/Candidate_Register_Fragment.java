@@ -262,8 +262,4 @@ public class Candidate_Register_Fragment extends Fragment implements View.OnClic
         }
     }
 
-
-
-
-
 }
