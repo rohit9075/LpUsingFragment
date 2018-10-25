@@ -72,9 +72,7 @@ public class CandidateLoginFragment extends Fragment implements View.OnClickList
             return;
         }
 
-
         candidateLogin();
-
 
     }
 
@@ -93,6 +91,5 @@ public class CandidateLoginFragment extends Fragment implements View.OnClickList
             Toast.makeText(getContext(), "Invalid id and password", Toast.LENGTH_SHORT).show();
         }
     }
-
 
 }
